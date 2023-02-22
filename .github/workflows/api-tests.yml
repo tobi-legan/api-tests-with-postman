@@ -1,13 +1,13 @@
 name: Newman Test Run
 on: [push]
 jobs:
-  newman:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2-beta
-        with:
-          node-version: '12'
-      - run: npm install -g newman
-      - run: npm install -g newman-reporter-html
-      - run:  - newman run "QA Engineer Assessment Copy.postman_collection.json" --reporters cli,html,junit --reporter-html-export report.html --reporter-junit-export report.xml
+    newman:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v2-beta
+              with:
+                  node-version: "12"
+            - run: npm install -g newman
+            - run: npm install -g newman-reporter-html
+            - run: newman run "QA Engineer Assessment Copy.postman_collection.json" --reporters cli,html,junit --reporter-html-export report.html --reporter-junit-export report.xml
