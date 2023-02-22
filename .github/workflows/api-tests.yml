@@ -10,4 +10,9 @@ jobs:
                   node-version: "12"
             - run: npm install -g newman
             - run: npm install -g newman-reporter-html
-            - run: newman run "QA Engineer Assessment Copy.postman_collection.json" --reporters html
+            - run: newman run "QA Engineer Assessment Copy.postman_collection.json" --reporters cli,html,junit --reporter-html-export report.html --reporter-junit-export report.xml
+            - name: Output the run Details
+              uses: actions/upload-artifact@v2
+              with:
+               name: RunReports
+               path: report.html
